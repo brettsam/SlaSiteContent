@@ -6,7 +6,6 @@
     <OutputType>Exe</OutputType>    
     <RootNamespace>V3ColdIsolated5</RootNamespace>
     <PublishReadyToRun>true</PublishReadyToRun>
-    <PublishReadyToRunUseCrossgen2>true</PublishReadyToRunUseCrossgen2>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.Http" Version="3.0.13" />
