@@ -16,8 +16,8 @@ jobs:
           dotnet-version: '6.0.x'
           include-prerelease: true 
     - name: Publish
-      run: dotnet publish -c Release -r win-x86 -o ../buildoutput/V4Cold
-      working-directory: ./V4Cold
+      run: dotnet publish -c Release -r win-x86 -o
+      working-directory: ./v4-cold
     - uses: actions/upload-artifact@v2
       with:
           name: buildoutput
