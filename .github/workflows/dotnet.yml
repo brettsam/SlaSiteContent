@@ -6,18 +6,32 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     
     steps:
     - uses: actions/checkout@v2
-    - name: Setup .NET
+    - name: Setup .NET 3.1
+      uses: actions/setup-dotnet@v1
+      with:
+          dotnet-version: '3.1.x'
+    - name: Setup .NET 5.0
+      uses: actions/setup-dotnet@v1
+      with:
+          dotnet-version: '5.0.x'
+    - name: Setup .NET 6.0
       uses: actions/setup-dotnet@v1
       with:
           dotnet-version: '6.0.x'
           include-prerelease: true 
-    - name: Publish
-      run: dotnet publish -c Release -r win-x86 -o buildoutput/V4Cold
-      working-directory: ./V4Cold
+    - name: Publish v3-cold-isolated5
+      run: dotnet publish -c Release -r win-x86 -o ../buildoutput/v3-cold-isolated5
+      working-directory: ./v3-cold-isolated5
+    - name: Publish v4-cold
+      run: dotnet publish -c Release -r win-x86 -o ../buildoutput/v4-cold
+      working-directory: ./v4-cold
+    - name: Publish v4-cold-isolated6
+      run: dotnet publish -c Release -r win-x86 -o ../buildoutput/v4-cold-isolated6
+      working-directory: ./v4-cold
     - uses: actions/upload-artifact@v2
       with:
           name: buildoutput
