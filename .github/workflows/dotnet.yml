@@ -24,14 +24,14 @@ jobs:
           dotnet-version: '6.0.x'
           include-prerelease: true 
     - name: Publish v3-cold-isolated5
-      run: dotnet publish -c Release -r win-x86 -o ../buildoutput/v3-cold-isolated5
+      run: dotnet publish -c Release -r win-x86 --self-contained false -o ../buildoutput/v3-cold-isolated5
       working-directory: ./v3-cold-isolated5
     - name: Publish v4-cold
-      run: dotnet publish -c Release -r win-x86 -o ../buildoutput/v4-cold
+      run: dotnet publish -c Release -r win-x86 --self-contained false -o ../buildoutput/v4-cold
       working-directory: ./v4-cold
     - name: Publish v4-cold-isolated6
-      run: dotnet publish -c Release -r win-x86 -o ../buildoutput/v4-cold-isolated6
-      working-directory: ./v4-cold
+      run: dotnet publish -c Release -r win-x86 --self-contained false -o ../buildoutput/v4-cold-isolated6
+      working-directory: ./v4-cold-isolated6
     - uses: actions/upload-artifact@v2
       with:
           name: buildoutput
